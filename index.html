@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Email Tag</title>
+	<script src="Scripts/jquery-1.10.1.min.js"></script>
+	
+	<link rel="stylesheet" href="Content/css/style.css">
+	
+</head>
+<body>
+	<div class="container">
+		<input type="text">
+		<input type="file" id="files" style="height: 100px;">
+	</div>
+	<script>
+		$(document).ready(function(){
+			
+			$('#files').on('change', teste, false); 
+			function teste(e){
+						e.preventDefault();
+						var files =e.originalEvent.dataTransfer.files;
+						var formData = new FormData();
+
+ //append the files to the formData object
+ //if you are using multiple attribute you would loop through 
+ //but for this example i will skip that
+					 formData.append('files', files[0])
+						console.log(e.originalEvent.dataTransfer.files);
+						return false;
+					}
+		});
+	</script>
+</body>
+</html>
